@@ -14,15 +14,17 @@ cur.execute("""CREATE TABLE IF NOT EXISTS person (
 );
 """)
 
-# sql, make sure to lint/update code editor
-#cur.execute(""" INSERT INTO person (id, name, age) VALUES
-#(1, 'guy', 30),
-#(2, 'person', 94)
-#""")
-
 cur.execute("""SELECT * FROM person WHERE age < 50""")
 print(cur.fetchone())
 
 conn.commit()
 cur.close()
 conn.close()
+
+def write_to_db():
+
+    # sql, make sure to lint/update code editor
+    cur.execute(""" INSERT INTO person (id, name, age) VALUES
+    (1, 'guy', 30),
+    (2, 'person', 94)
+    """)
